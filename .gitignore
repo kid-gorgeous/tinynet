@@ -1,0 +1,9 @@
+# Files
+/requirements.txt
+
+# Directories
+datasets/
+__pycache__/
+
+# Extensions
+*.h5
