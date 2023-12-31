@@ -2,8 +2,14 @@
 /requirements.txt
 
 # Directories
+linear/
+models/
+tuners/
 datasets/
 __pycache__/
 
 # Extensions
 *.h5
+*.sh
+*.swp
+*.DS_Store
