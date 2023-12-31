@@ -1,0 +1,7 @@
+keras
+keras-tuner
+numpy
+pandas
+tensorflow
+torch
+termcolor

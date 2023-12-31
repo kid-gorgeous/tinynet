@@ -1,9 +1,9 @@
 # Files
-/requirements.txt
+# /requirements.txt
 
 # Directories
 linear/
-models/
+# models/
 tuners/
 datasets/
 __pycache__/
