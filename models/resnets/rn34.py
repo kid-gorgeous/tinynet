@@ -5,10 +5,6 @@ import getpass
 import tensorflow as tf
 
 sys.path.append('/Users/{}/tinynet'.format(getpass.getuser()))
-
-from keras.datasets import fashion_mnist
-
-(X_train, y_train), (X_test, y_test) = fashion_mnist.load_data()
 optimizer = 'adam'
 loss = 'categorical_crossentropy'
 metrics = ['accuracy']
@@ -46,10 +42,10 @@ from keras.models import Sequential
 class ResNet34(keras.Model):
     def __init__(self, output_dim, **kwargs):
         super().__init__(**kwargs)
-        self.hidden1 = keras.layers.Conv2D(64, 7, strides=2, input_shape=[224, 224, 3], padding="same", use_bias=False)
-        self.bn1 = keras.layers.BatchNormalization()
-        self.maxpool = keras.layers.MaxPool2D(pool_size=3, strides=2, padding="same")
-        self.residual_layers = [
+        self.hidden1 = keras.layers.Conv2D(64, 7, strides=2, input_shape=[224, 224, 3], padding="same", use_bias=False) # 1 
+        self.bn1 = keras.layers.BatchNormalization()                                                                    # 2    
+        self.maxpool = keras.layers.MaxPool2D(pool_size=3, strides=2, padding="same")                                   # 3 
+        self.residual_layers = [                                                                                        # 4 - 17                
             ResidualUnit(64, strides=1),
             ResidualUnit(64, strides=1),
             ResidualUnit(64, strides=1),

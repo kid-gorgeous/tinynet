@@ -7,15 +7,17 @@ from keras.models import Sequential
 from termcolor import colored as c
 
 class data:
-    def __init__(self, path):
+    def __init__(self, path, filename):
         self.path = path
+        self.filename = filename
 
     def load(self):
         cap = cv2.VideoCapture(self.path)
+        
         while(cap.isOpened()):
             ret, frame = cap.read()
-            gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
-            cv2.imshow('frame',gray)
+            frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
+            cv2.imshow('{}'.format(self.filename),frame)
             if cv2.waitKey(1) & 0xFF == ord('q'):
                 break
         cap.release()
@@ -26,8 +28,9 @@ class data:
 
 if __name__ == '__main__':
     print(c("Loading datasets", 'green'))
-    wd = '/Users/evan/tinynet/datasets/videos/day_01.mp4'
-    data = data(wd)
+    filename = 'day_01.mp4'
+    wd = '/Users/evan/tinynet/datasets/videos/{}'.format(filename)
+    data = data(wd, filename)
     print(c('Path: {}'.format(data.path), 'green'))
 
     data.load()

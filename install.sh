@@ -4,6 +4,4 @@
 
 
 pip install --upgrade pip
-pip install open3d
-pip install numpy
-
+pip install -r requirements.txt
